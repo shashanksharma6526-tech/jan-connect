@@ -28,9 +28,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "complaints")
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Complaint {
     
     @Id
