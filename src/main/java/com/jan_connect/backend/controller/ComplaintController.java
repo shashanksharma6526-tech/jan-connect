@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jan_connect.backend.dto.ComplaintResponse;
+import com.jan_connect.backend.entity.User;
 import com.jan_connect.backend.repository.UserRepository;
 import com.jan_connect.backend.service.ComplaintService;
 import com.jan_connect.backend.service.RedisVoteService;
@@ -35,17 +36,16 @@ public class ComplaintController {
 
     @PostMapping
     @Operation(summary = "Submit a new complaint")
-    public ResposeEntity<ComplaintResponse> submitComplaint(
+    public ResponseEntity<ComplaintResponse> submitComplaint(
             @PathVariable String city,
             @RequestParam(required = false) String cursor,
             @RequestParam(defaultValue = "10") int limit,
             @AuthenticationPrincipal UserDetails userDetails) {
         Long userID = resolveUserID(userDetails);
         return ResponseEntity.ok(
-                complaintService.getCityFrontPaage(city, cursor, limit, userID));
+                complaintService.getCityFrontPage(city, cursor, limit, userID));
     }
 
-    @
     @GetMapping("/{id}")
     @Operation(summary = "Get full details of a single complaint")
     public ResponseEntity<ComplaintResponse> getComplaint(
