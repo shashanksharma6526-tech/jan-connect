@@ -1,6 +1,7 @@
 package com.jan_connect.backend.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,6 +10,7 @@ import org.springframework.cglib.core.Local;
 import com.jan_connect.backend.enums.ComplaintPriority;
 import com.jan_connect.backend.enums.ComplaintStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,6 +21,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,23 +50,11 @@ public class Complaint {
     @Column(nullable = false)
     private ComplaintCategory category;
 
-    // @Enumerated(EnumType.STRING)
-    // @Column(nullable = false)
-    // @Builder.Default
-    // private ComplaintStatus status = ComplaintStatus.OPEN;
-
     @Column(nullable = false)
     private String location;
 
-    // @Column(nullable = false)
-    // @Builder.Default
-    // private Integer voteScore = 0;
-
     @CreationTimestamp
     private LocalDateTime CreatedAt;
-
-    // @UpdateTimestamp
-    // private LocalDateTime updatedAt;
 
     @Column(nullable = false, unique = true)
     private String complaintNumber;
@@ -84,8 +75,6 @@ public class Complaint {
     @Builder.Default
     private ComplaintStatus status = ComplaintStatus.PENDING;
 
-    private String authorityNote;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -100,4 +89,18 @@ public class Complaint {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "community_id", nullable = false)
+    private Community community;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
+    private User comments;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
+    private List<Vote> votes;
 }

@@ -23,6 +23,6 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Long> {
             SELECT MAX(CAST(SUBSTRING(c.complaaintNumber, 5) AS int))
             FROM Complaint c WHERE c.city.id = :cityId
             """)
-    Optional<Integer> findMaaxSequenceForCity(
+    Optional<Integer> findMaxSequenceForCity(
             @Param("cityId") Long cityId);
 }

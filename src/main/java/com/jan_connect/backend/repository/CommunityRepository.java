@@ -11,7 +11,7 @@ import com.jan_connect.backend.entity.Community;
 @Repository
 public interface CommunityRepository extends JpaRepository<Community, Long>{
     
-    Optional<Community> findByCityAndIgnoreCaseAandIsActiveTrue(String city);
+    Optional<Community> findByCityAndIgnoreCaseAndIsActiveTrue(String city);
 
     List<Community> findAllOrderByCityAsc();
 
