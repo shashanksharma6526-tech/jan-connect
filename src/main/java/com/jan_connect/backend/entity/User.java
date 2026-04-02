@@ -41,7 +41,7 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(nullable = false)
-    private String fullName;
+    private String username;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -58,7 +58,7 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserType userType;
+    private UserType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")

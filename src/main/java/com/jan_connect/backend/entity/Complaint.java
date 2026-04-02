@@ -40,15 +40,15 @@ public class Complaint {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String title;
+    // @Column(nullable = false)
+    // private String title;
 
     @Column(nullable = false, length = 2000)
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ComplaintCategory category;
+    // @Enumerated(EnumType.STRING)
+    // @Column(nullable = false)
+    // private ComplaintCategory category;
 
     @Column(nullable = false)
     private String location;
@@ -56,6 +56,8 @@ public class Complaint {
     @CreationTimestamp
     private LocalDateTime CreatedAt;
 
+    private String authorityNote;
+    
     @Column(nullable = false, unique = true)
     private String complaintNumber;
 
@@ -75,8 +77,8 @@ public class Complaint {
     @Builder.Default
     private ComplaintStatus status = ComplaintStatus.PENDING;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    // @CreationTimestamp
+    // private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", nullable = false)
@@ -90,17 +92,19 @@ public class Complaint {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User author;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "user_id", nullable = false)
+    // private User author;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "community_id", nullable = false)
-    private Community community;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "community_id", nullable = false)
+    // private Community community;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
-    private User comments;
+    // @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
+    // private User comments;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
-    private List<Vote> votes;
+    // @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "complaint")
+    // private List<Vote> votes;
+
+
 }
