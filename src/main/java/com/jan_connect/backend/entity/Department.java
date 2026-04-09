@@ -45,5 +45,5 @@ public class Department {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", nullable = false)
-    private City city;    
+    private City city;
 }
