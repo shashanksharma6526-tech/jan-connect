@@ -44,32 +44,31 @@ public class JwtUtil {
         return buildToken(guestId, guestTokenExpiration, Map.of("type", "guest"));
     }
 
-    private String buildToken(String subject, long expiration, Map<String, Object> claims){
+    private String buildToken(String subject, long expiration, Map<String, Object> claims) {
 
         return Jwts.builder()
-        .setClaims(claims)
-        .setSubject(subject)
-        .setIssuedAt((new Date()))
-        .setExpiration(new Date(System.currentTimeMillis()+expiration))
-        .signWith(getSigningKey(), SignatureAlgorithm.HS256)
-        .compact();
+                .setClaims(claims)
+                .setSubject(subject)
+                .setIssuedAt((new Date()))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
-    public String extractUsername(String token){
+    public String extractUsername(String token) {
         return Jwts.parserBuilder()
-        .setSigningKey(getSigningKey()).build()
-        .parseClaimsJws(token).getBody().getSubject();
+                .setSigningKey(getSigningKey()).build()
+                .parseClaimsJws(token).getBody().getSubject();
     }
 
-    public Boolean isTokenValid(String token, UserDetails userDetails){
+    public Boolean isTokenValid(String token, UserDetails userDetails) {
         return extractUsername(token).equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-
-    private boolean isTokenExpired(String token){
+    private boolean isTokenExpired(String token) {
         return Jwts.parserBuilder()
-        .setSigningKey(getSigningKey()).build()
-        .parseClaimsJws(token).getBody()
-        .getExpiration().before(new Date());
+                .setSigningKey(getSigningKey()).build()
+                .parseClaimsJws(token).getBody()
+                .getExpiration().before(new Date());
     }
 }
