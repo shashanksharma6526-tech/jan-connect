@@ -21,8 +21,8 @@ public class RegisterRequest {
     private String password;
 
     @NotBlank(message = "City is required")
-    private String city;;
+    private String cityId;
 
-    @NotBlank(message = "Locality is required")
-    private String locality;
+    // @NotBlank(message = "Locality is required")
+    // private String locality;
 }
