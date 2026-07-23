@@ -3,9 +3,9 @@ package com.jan_connect.backend.service;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.jan_connect.backend.dto.ComplaintRequest;
-import com.jan_connect.backend.dto.ComplaintResponse;
-import com.jan_connect.backend.dto.CursorPage;
+import com.jan_connect.backend.dto.complaint.ComplaintRequest;
+import com.jan_connect.backend.dto.complaint.ComplaintResponse;
+import com.jan_connect.backend.dto.common.CursorPage;
 import com.jan_connect.backend.entity.Community;
 import com.jan_connect.backend.entity.Complaint;
 import com.jan_connect.backend.entity.User;

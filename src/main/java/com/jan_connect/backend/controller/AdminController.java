@@ -14,5 +14,5 @@ import lombok.RequiredArgsConstructor;
 @SecurityRequirement(name = "bearerAuth")
 public class AdminController {
     
-    private final CityService cityService;
+    // TODO: Implement admin endpoints
 }

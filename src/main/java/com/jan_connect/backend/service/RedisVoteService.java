@@ -21,6 +21,16 @@ public class RedisVoteService {
     private final ComplaintRepository complaintRepository;
     private final UserRepository userRepository;
 
+    public static class VoteResult {
+        public boolean success;
+        public int scoreDelta;
+
+        public VoteResult(boolean success, int scoreDelta) {
+            this.success = success;
+            this.scoreDelta = scoreDelta;
+        }
+    }
+
     private String upVoteKey(Long complaintId) {
         return "vote:up:" + complaintId;
     }
@@ -33,14 +43,14 @@ public class RedisVoteService {
     public VoteResult castVote(Long complaintId, boolean isUpVote, String userEmail) {
 
         User voter = userRepository.findByEmail(userEmail)
-                .orElseThrow(() -> ResourceNotFoundExcepton("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundExcepton("User not found"));
 
         Complaint complaint = complaintRepository.findById(complaintId)
                 .orElseThrow(() -> new ResourceNotFoundExcepton("Complaint not found with ID: " + complaintId));
 
         String userID = voter.getId().toString();
         String primaryKey = isUpVote ? upVoteKey(complaintId) : downVoteKey(complaintId);
-        String oppositeKey = isUpvote ? downVoteKey(complaintId) : upVoteKey(complaintId);
+        String oppositeKey = isUpVote ? downVoteKey(complaintId) : upVoteKey(complaintId);
 
         Boolean alreadyVotedSame = redisTemplate.opsForSet().isMember(primaryKey, userID);
         boolean alreadyUpvotedOpposite = redisTemplate.opsForSet().isMember(oppositeKey, userID);
@@ -53,7 +63,14 @@ public class RedisVoteService {
         }
         else if(Boolean.TRUE.equals(alreadyUpvotedOpposite)){
             redisTemplate.opsForSet().remove(oppositeKey, userID);
-            redisTemplate.opsForSet().remove(primaryKey, userID);
+            redisTemplate.opsForSet().add(primaryKey, userID);
+            scoreDelta = isUpVote ? +2 : -2;
         }
+        else {
+            redisTemplate.opsForSet().add(primaryKey, userID);
+            scoreDelta = isUpVote ? +1 : -1;
+        }
+        
+        return new VoteResult(true, scoreDelta);
     }
 }

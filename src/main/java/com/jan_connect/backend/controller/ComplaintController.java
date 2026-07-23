@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jan_connect.backend.dto.ComplaintResponse;
+import com.jan_connect.backend.dto.complaint.ComplaintResponse;
 import com.jan_connect.backend.entity.User;
 import com.jan_connect.backend.repository.UserRepository;
 import com.jan_connect.backend.service.ComplaintService;
