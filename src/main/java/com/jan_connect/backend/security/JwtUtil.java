@@ -32,8 +32,12 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    public String generatAcessToken(UserDetails userDetails) {
+    public String generateAccessToken(UserDetails userDetails) {
         return buildToken(userDetails.getUsername(), acessTokenExpiration, Map.of("type", "acess"));
+    }
+
+    public String generatAcessToken(UserDetails userDetails) {
+        return generateAccessToken(userDetails);
     }
 
     public String generateRefreshTokenValue() {

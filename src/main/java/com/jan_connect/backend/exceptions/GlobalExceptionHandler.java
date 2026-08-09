@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     // For 404 error
-    @ExceptionHandler(ResourceNotFoundExcepton.class)
-    public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundExcepton excepton) {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException exception) {
         ErrorResponse error = new ErrorResponse(
                 HttpStatus.NOT_FOUND.value(),
-                excepton.getMessage(),
+                exception.getMessage(),
                 LocalDateTime.now());
 
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);

@@ -1,7 +1,7 @@
 package com.jan_connect.backend.controller;
 
-import com.jan_connect.dto.city.*;
-import com.jan_connect.service.*;
+import com.jan_connect.backend.dto.city.*;
+import com.jan_connect.backend.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

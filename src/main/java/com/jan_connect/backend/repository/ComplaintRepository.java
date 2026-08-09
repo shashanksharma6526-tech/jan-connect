@@ -18,7 +18,7 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Long> {
     List<Complaint> findByCityIdOrderByPriorityDescCreatedAtDesc(Long cityId);
 
     @Query("""
-            SELECT MAX(CAST(SUBSTRING(c.complaaintNumber, 5) AS int))
+            SELECT MAX(CAST(SUBSTRING(c.complaintNumber, 5) AS int))
             FROM Complaint c WHERE c.city.id = :cityId
             """)
     Optional<Integer> findMaxSequenceForCity(@Param("cityId") Long cityId);

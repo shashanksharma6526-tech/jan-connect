@@ -1,7 +1,7 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.dto.state.StateResponse;
-import com.civicpulse.service.StateService;
+import com.jan_connect.backend.dto.state.StateResponse;
+import com.jan_connect.backend.service.StateService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.dto.auth.*;
-import com.civicpulse.service.AuthService;
+import com.jan_connect.backend.dto.auth.*;
+import com.jan_connect.backend.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

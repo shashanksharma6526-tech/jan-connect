@@ -1,7 +1,7 @@
-package com.civicpulse.entity;
+package com.jan_connect.backend.entity;
 
-import com.civicpulse.enums.ComplaintPriority;
-import com.civicpulse.enums.ComplaintStatus;
+import com.jan_connect.backend.enums.ComplaintPriority;
+import com.jan_connect.backend.enums.ComplaintStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

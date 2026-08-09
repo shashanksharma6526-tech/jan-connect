@@ -1,9 +1,9 @@
-package com.civicpulse.service;
+package com.jan_connect.backend.service;
 
-import com.civicpulse.dto.poll.*;
-import com.civicpulse.entity.*;
-import com.civicpulse.exception.ResourceNotFoundException;
-import com.civicpulse.repository.*;
+import com.jan_connect.backend.dto.poll.*;
+import com.jan_connect.backend.entity.*;
+import com.jan_connect.backend.exceptions.ResourceNotFoundException;
+import com.jan_connect.backend.repository.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

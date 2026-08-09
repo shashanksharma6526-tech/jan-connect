@@ -1,8 +1,8 @@
-package com.civicpulse.util;
+package com.jan_connect.backend.util;
 
-import com.civicpulse.entity.City;
-import com.civicpulse.repository.CityRepository;
-import com.civicpulse.repository.ComplaintRepository;
+import com.jan_connect.backend.entity.City;
+import com.jan_connect.backend.repository.CityRepository;
+import com.jan_connect.backend.repository.ComplaintRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.service.MediaService;
+import com.jan_connect.backend.service.MediaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

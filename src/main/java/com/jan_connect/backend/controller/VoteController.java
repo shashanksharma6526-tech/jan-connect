@@ -1,7 +1,7 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.dto.post.VoteRequest;
-import com.civicpulse.service.RedisVoteService;
+import com.jan_connect.backend.dto.post.VoteRequest;
+import com.jan_connect.backend.service.RedisVoteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

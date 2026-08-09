@@ -1,12 +1,12 @@
-package com.civicpulse.service;
+package com.jan_connect.backend.service;
 
-import com.civicpulse.dto.auth.*;
-import com.civicpulse.entity.*;
-import com.civicpulse.enums.*;
-import com.civicpulse.exception.ResourceNotFoundException;
-import com.civicpulse.exception.UnauthorizedException;
-import com.civicpulse.repository.*;
-import com.civicpulse.security.JwtUtil;
+import com.jan_connect.backend.dto.auth.*;
+import com.jan_connect.backend.entity.*;
+import com.jan_connect.backend.enums.*;
+import com.jan_connect.backend.exceptions.ResourceNotFoundException;
+import com.jan_connect.backend.exceptions.UnauthorizedException;
+import com.jan_connect.backend.repository.*;
+import com.jan_connect.backend.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.*;
 import org.springframework.security.crypto.password.PasswordEncoder;

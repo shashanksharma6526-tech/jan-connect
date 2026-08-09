@@ -50,6 +50,10 @@ public class City {
     @JoinColumn(name = "state_id", nullable = false)
     private State state;
 
+    @Builder.Default
+    @Column(nullable = false)
+    private Integer complaintSequence = 0;
+
     @Column(columnDefinition = "TEXT")
     private String pollOptions;
 
@@ -57,8 +61,8 @@ public class City {
     private List<Post> posts;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Post> departments;
+    private List<Department> departments;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Post> pollVotes;
+    private List<PollVote> pollVotes;
 }

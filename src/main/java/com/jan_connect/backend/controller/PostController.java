@@ -1,10 +1,10 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.dto.common.CursorPage;
-import com.civicpulse.dto.post.*;
-import com.civicpulse.entity.User;
-import com.civicpulse.repository.UserRepository;
-import com.civicpulse.service.PostService;
+import com.jan_connect.backend.dto.common.CursorPage;
+import com.jan_connect.backend.dto.post.*;
+import com.jan_connect.backend.entity.User;
+import com.jan_connect.backend.repository.UserRepository;
+import com.jan_connect.backend.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

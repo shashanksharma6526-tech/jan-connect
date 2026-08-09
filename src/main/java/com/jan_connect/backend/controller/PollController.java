@@ -1,9 +1,9 @@
-package com.civicpulse.controller;
+package com.jan_connect.backend.controller;
 
-import com.civicpulse.dto.poll.*;
-import com.civicpulse.entity.User;
-import com.civicpulse.repository.UserRepository;
-import com.civicpulse.service.PollService;
+import com.jan_connect.backend.dto.poll.*;
+import com.jan_connect.backend.entity.User;
+import com.jan_connect.backend.repository.UserRepository;
+import com.jan_connect.backend.service.PollService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,8 +29,7 @@ public class PollController {
             @AuthenticationPrincipal UserDetails userDetails) throws Exception {
 
         Long userId = userDetails != null
-            ? userRepository.findByEmail(userDetails.getUsername())
-                .map(User::getId).orElse(null)
+            ? userRepository.findByEmail(userDetails.getUsername()).map(User::getId).orElse(null)
             : null;
 
         return ResponseEntity.ok(pollService.getPoll(cityId, userId));
