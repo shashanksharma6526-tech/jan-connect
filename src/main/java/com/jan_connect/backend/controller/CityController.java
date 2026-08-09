@@ -1,5 +1,5 @@
 package com.jan_connect.backend.controller;
 
-public class AuthorityController {
+public class CityController {
     
 }
